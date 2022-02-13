@@ -1,0 +1,8 @@
+{
+    "Token":"BOT Token",
+    "Bot_Prefix":"Bot prefix",
+    "Feed_URL":"Feed URL",
+    "Channel_ID": Channel ID in which you want the feed ,
+    "LogChannel_ID": Channel ID for receiving log messages,
+    "Wait": 100 
+} 
