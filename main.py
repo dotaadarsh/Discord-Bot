@@ -14,6 +14,7 @@ Token = configfile["Token"]
 Roles = ["ATOM", "BOT"]  # Add your server roles here.
 blog = build("blogger", "v3", developerKey=Key)
 
+
 @client.event
 async def on_ready():
     print("Bot has started running")
@@ -29,12 +30,11 @@ async def search(ctx, arg):
     response = requests.get(complete_url)
     result = response.json()
 
-    now = datetime.now()
-
-    current_time = now.strftime("%H:%M:%S")
+    timestamp = datetime.now()
+    now = timestamp.strftime(r"%I:%M %p")
 
     embed = discord.Embed(title="List of Search results",
-                          description="Checked on " + f"{current_time}\n",
+                          description="Checked on " + f"{now}\n",
                           color=0x349bfc)
     embed.set_author(name="Your Website Name")
     embed.set_thumbnail(url="https://www.yourwebsite.com/favicon.ico")
@@ -60,5 +60,6 @@ client.recentPostsTime = None
 client.recentPostsEdit = None
 
 client.load_extension("feed")
+client.load_extension("feedback")
 
 client.run(Token, bot=True)
